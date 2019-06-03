@@ -1,54 +1,54 @@
 package com.tencent.tdd.codestorm;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class FizzBuzz {
 
-  public Map<Integer, String> fizzbuzzMap = new HashMap<>();
+  private int firstNumber = 0;
+  private int secondNumber = 0;
 
-  public int tellTwoSpecialNum(int x, int y) {
-    return fizzbuzzMap.size();
+  public void tellTwoSpecialNum(int x, int y) {
+    if (x == y) {
+      System.out.println("this two number should not be the same");
+      System.exit(1);
+    }
+
+    firstNumber = x;
+    secondNumber = y;
   }
 
   public boolean isFizz(int number) {
-    return false;
+    return number % firstNumber == 0 || String.valueOf(number).contains(String.valueOf(firstNumber));
   }
 
   public boolean isBuzz(int number) {
-    return false;
+    return number % secondNumber == 0 || String.valueOf(number).contains(String.valueOf(secondNumber));
   }
 
   public boolean isFizzBuzz(int number) {
-    return false;
+    return (number % firstNumber == 0) && (number % secondNumber == 0);
   }
 
-  public void sayYourSlogan(int number) {
+  public String sayYourSlogan(int number) {
 
     if (isFizzBuzz(number)) {
-      System.out.println("FizzBuzz");
-      return;
+      return "FizzBuzz";
     }
 
     if (isFizz(number)) {
-      System.out.println("Fizz");
-      return;
+      return "Fizz";
     }
 
     if (isBuzz(number)) {
-      System.out.println("Buzz");
-      return;
+      return "Buzz";
     }
 
-    System.out.println(number);
-    return;
+    return String.valueOf(number);
   }
 
   public void startGame(int studentNumber, int x, int y) {
     tellTwoSpecialNum(x, y);
 
     for (int i = 0; i < studentNumber; i++) {
-      sayYourSlogan(i);
+      System.out.println(sayYourSlogan(i));
     }
 
   }

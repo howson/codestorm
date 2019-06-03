@@ -1,5 +1,7 @@
 package com.tencent.tdd.codestorm;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class FizzBuzzTest {
@@ -13,12 +15,21 @@ public class FizzBuzzTest {
 
   private FizzBuzz fizzBuzz = new FizzBuzz();
 
+  @Before
+  public void setUp() {
+    fizzBuzz.tellTwoSpecialNum(3, 5);
+  }
+
   /**
    * 测试Fizz是否正常
    */
   @Test
   public void testFizz() {
-
+    Assert.assertTrue(fizzBuzz.isFizz(13));
+    Assert.assertTrue(fizzBuzz.isFizz(39));
+    Assert.assertFalse(fizzBuzz.isFizz(50));
+    Assert.assertTrue("Fizz".equals(fizzBuzz.sayYourSlogan(33)));
+    Assert.assertFalse("Fizz".equals(fizzBuzz.sayYourSlogan(30)));
   }
 
   /**
@@ -26,7 +37,11 @@ public class FizzBuzzTest {
    */
   @Test
   public void testBuzz() {
-
+    Assert.assertTrue(fizzBuzz.isBuzz(80));
+    Assert.assertTrue(fizzBuzz.isBuzz(25));
+    Assert.assertFalse(fizzBuzz.isBuzz(63));
+    Assert.assertTrue("Buzz".equals(fizzBuzz.sayYourSlogan(55)));
+    Assert.assertFalse("Buzz".equals(fizzBuzz.sayYourSlogan(15)));
   }
 
   /**
@@ -34,7 +49,10 @@ public class FizzBuzzTest {
    */
   @Test
   public void testFizzBuzz() {
-
+    Assert.assertTrue(fizzBuzz.isFizzBuzz(15));
+    Assert.assertTrue(fizzBuzz.isFizzBuzz(45));
+    Assert.assertTrue("FizzBuzz".equals(fizzBuzz.sayYourSlogan(90)));
+    Assert.assertFalse(fizzBuzz.isFizzBuzz(35));
   }
 
 }
