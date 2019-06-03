@@ -48,7 +48,7 @@ public class FizzBuzz {
     tellTwoSpecialNum(x, y);
 
     for (int i = 0; i < studentNumber; i++) {
-      System.out.println(sayYourSlogan(i));
+      System.out.println("student " + "i" + " says " + sayYourSlogan(i));
     }
 
   }

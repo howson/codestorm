@@ -55,4 +55,9 @@ public class FizzBuzzTest {
     Assert.assertFalse(fizzBuzz.isFizzBuzz(35));
   }
 
+  @Test
+  public void testStartGame() {
+    fizzBuzz.startGame(100, 3, 5);
+  }
+
 }
